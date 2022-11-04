@@ -53,3 +53,14 @@ function getMoviesByName() {
         .catch(error => console.log(error));
 };
 
+const getMoviesByNam = async (movieName) => {
+  const result = await fetch(
+    `http://www.omdbapi.com/?t=${movieName}&apikey=${apiKey}`
+  );
+  const movie = await result.json();
+  console.log(movie);
+};
+
+getMoviesByNam('spiderman');
+getMoviesByNam('wolverine');
+
